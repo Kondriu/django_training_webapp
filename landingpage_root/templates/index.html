@@ -1,81 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Yitle is "hello page"...</title>
-    </head>
-
-    <body>
-        <h1>Hello page!</h1>
-        <p>Some text</p>
-        <h3>{{a}}</h3>
-        <!-- <p>{{ object_list }}</p>
-        {% for obj in object_list %}
-        <h2>---</h2>
-        <h2>{{ obj.id }}</h2>
-        <h2>{{ obj.order_dt }}</h2>
-        <h2>{{ obj.order_name }}</h2>
-        <h2>{{ obj.order_phone }}</h2>
-        <h2>---</h2>
-
-        {% endfor %} -->
-
-<!-- на случай если данных для вывода не будет, моно добавить иф -->
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<style>
-    .css_input{
-        color: red;
-        background-color: bisque;
-    }
-</style>
-
-<form action="{% url 'thanks_page' %}" method="POST">
-    {% csrf_token %}
-    <!-- <label>Им'я</label>
-    <input name="name">
-
-    <label>Телефон</label>
-    <input name="phone"> -->
-
-    {{ form.as_p  }} 
-    <button type="submit">Відправити</button>
-
-</form>
-
-<br>
-<br>
-<br>
-<br>
-
-    {% if object_list %}
-        <table border="1">
-            <tr>
-                <th>Id</th>
-                <th>Дата</th>
-                <th>Ім'я</th>
-                <th>Телефон</th>
-            </tr>
-
-            <!-- в цикле выводятся элементы, по-строчно -->
-            {% for obj in object_list %} 
-            <tr>
-                <th>{{ obj.id }}</th>
-                <th>{{ obj.order_dt  }}</th>
-                <th>{{ obj.order_name }}</th>
-                <th>{{ obj.order_prone }}</th>
-
-            </tr>
-            {% endfor %}
-
-        </table>
-    {% else %}
-    нет данных
-    {% endif %}
-    
-    </body>
-</html>
+{% extends 'base.html' %}
+{% block title %} индекс пейдж {% endblock %}
+{% load static %}
+{% block content %}
+<h2>данные из индекса</h2>
+<img src="{% static 'img\1.jpg' %}">
+{% include 'index_old.html' %}
+{% endblock %}
